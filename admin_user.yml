@@ -1,0 +1,17 @@
+- hosts: all
+  become: true
+  tasks:
+
+    - name: create admin user
+      tags: always
+      user:
+        name: admin_user
+        groups: root
+
+    - name: add ssh key for admin
+      tags: always
+      authorized_key:
+        user: admin_user
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCkYQyvpyZZl05mvkSjGmHMcKyIuJG/Zp+jVhXJ7T4xr6zChLXBdDfZf4QcEWqokAqMBY/DdoNCphsz0fXX7MPuJAozJuG5jhQFQAX/+Kh+ODX++72gmdgSYt+Ja4hZb/IvKjsdo+mYZWFkah7GV8D6aNdqCFU/kNxIC3hlygiVnSSfUyro92TA3zWxeVSktlLCr+paggTXeYvQwOcyiZU7Id3RaNuZ4VWVK7MSSesd8AZwc+k6SnNvkyuvLaU0fYSRCFSb8Afc7SVVrZZLDHIPYUadZWRiCAYjAkmJiNtCQjcWq7722rK6/gIfzZYMYPyDhtKyPVAIQ9ldvbk1hsMth01NYNvyLEVKRrVObAGEY81kGX1Cwy081ugxse1lbD+io+hICjZRKQS4HkijoMhRVERHeRBr0YQO/MKxrnKubjdXfdznF/yg7FU6AbvgKSw2td7xPCjtyMI8DgNPOypYIDBAlJCvbVRUA0sxutjJVDfSmpuuknHa8lrs1+npZFeDoZqQVTy624zOTQn4Tj2tlJ1rSdpRMVxTtI8mG5d9uXbBlezQpY6D5dM0n6cFrAq0HdRX9CpDh5uo8QuBetvtrSde61xs4HqelSoB3Hxy02iJ50GIe3xEu1YklPZ8yYr3/E5qdSOOrXHviyo+ZuaDVaVb2+2ZN38rF76aWSXIRw== demo admin user
+"
+
